@@ -8,43 +8,22 @@ function init(){
             message: 'What would you like to do?',
             name: 'actions',
             choices:[
-                {
-                    name:'View All Departments',
-                    value:'viewDepts'
-                },
-                {
-                    name:'View All Roles',
-                    value:'viewRoles'
-                },
-                {
-                    name:'View All Employees',
-                    value:'viewEmployees'
-                },
-                {
-                    name:'Add A Department',
-                    value:'addDept'
-                },
-                {
-                    name:'Add A Role',
-                    value:'addRole'
-                },
-                {
-                    name:'Add An Employee',
-                    value:'addEmployee'
-                },
-                {
-                    name:`Update An Employee's Role`,
-                    value:'updateEmployee'
-                },
-                {
-                    name:`Quit Application`,
-                    value:'quit'
-                },
+                    'View All Departments',
+                    'View All Roles',
+                    'View All Employees',
+                    'Add A Department',
+                    'Add A Role',
+                    'Add An Employee',
+                    `Update An Employee's Role`,
+                    `Quit Application`,
             ]
         }
     ]).then((response)=>{
-        if(response.actions == 'viewDepts'){
-             getDepts();
+        console.log(response.actions)
+        if(response.actions == 'View All Departments'){
+            console.log('Yay')
+            getDepts();
+
         }
         else if(response.actions == 'viewRoles'){
            getRoles();
@@ -61,15 +40,16 @@ function init(){
         else if(response.actions == 'addEmployee'){
             addEmployee();
         }
-        if(response.actions == 'updateEmployee'){
+        else if(response.actions == 'updateEmployee'){
             updateEmployeeRole();
         }
         else if(response.actions == 'quit'){
+            console.log('Exit')
             process.exit();
         }
     })
 }
-init();
+;
 
 function getDepts(){
     db.viewDepartments().then(([rows]) =>{
@@ -86,19 +66,19 @@ function getEmployees(){
         console.table(rows)
      }).then(()=>init())
 }
-function addDeptInfo(name){
-        inquirer.prompt([
-            {
-                type: 'input',
-                message: 'What is the name of the department?',
-                name: 'name'
-            }
-        ]).then((response)=>{
-            db.addDept(response.name)
-            .then(console.log(`Added the ${response.name} department.`))
-        }).then(()=>init())
+function addDeptInfo(){
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: 'What is the name of the department?',
+            name: 'name'
+        }
+    ]).then((response)=>{
+        db.addDept(response.name)
+        .then(console.log(`Added the ${response.name} department.`))
+    }).then(()=>init())
 }
-function addRole(title, salary, department_id){
+function addRole(){
     inquirer.prompt([
         {
             type: 'input',
@@ -173,3 +153,4 @@ function updateEmployeeRole(){
         .then(console.log(`Updated employee with ID: ${response.employee} to role with ID: ${response.role}`))
     }).then(()=>init())
 }
+init();
