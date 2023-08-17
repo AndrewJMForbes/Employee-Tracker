@@ -1,3 +1,5 @@
+USE workplace_db;
+
 INSERT INTO department(name)
 VALUES
 ('Engineering'),
@@ -5,18 +7,18 @@ VALUES
 ('Legal'),
 ('Sales');
 
-INSERT INTO (title, salary, department_id)
+INSERT INTO role (title, salary, department_id)
 VALUES
 ('Sales Lead',180000,1),
 ('Salesperson',120000,1),
-('Lead Engineer',180000,1),
-('Software Engineer',70000,1),
-('Account Manager',180000,2),
-('Accountant',100000,2),
-('Legal Team Lead',300000,3),
-('Lawyer',200000,3);
+('Lead Engineer',180000,2),
+('Software Engineer',70000,2),
+('Account Manager',180000,3),
+('Accountant',100000,3),
+('Legal Team Lead',300000,4),
+('Lawyer',200000,4);
 
-INSERT INTO employee(first_name, last_name, role_id, manager_id)
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
 ('Andrew','Forbes',1,null),
 ('Andrew','Hur',2,1),
@@ -26,3 +28,4 @@ VALUES
 ('Christopher','Clair',7,5),
 ('Rich','Hosek',8,null),
 ('MJ','Shelton',9,7);
+
