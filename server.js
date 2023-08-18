@@ -25,22 +25,22 @@ function init(){
             getDepts();
 
         }
-        else if(response.actions == 'viewRoles'){
+        else if(response.actions == 'View All Roles'){
            getRoles();
         }
-        else if(response.actions == 'viewEmployees'){
+        else if(response.actions == 'View All Employees'){
             getEmployees();
         }
-        else if(response.actions == 'addDept'){
+        else if(response.actions == 'Add A Department'){
             addDeptInfo();
         }
-        else if(response.actions == 'addRole'){
+        else if(response.actions == 'Add A Role'){
             addRole();
         }
-        else if(response.actions == 'addEmployee'){
+        else if(response.actions == 'Add An Employee'){
             addEmployee();
         }
-        else if(response.actions == 'updateEmployee'){
+        else if(response.actions == `Update An Employee's Role`){
             updateEmployeeRole();
         }
         else if(response.actions == 'quit'){

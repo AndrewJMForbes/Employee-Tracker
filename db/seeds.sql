@@ -27,5 +27,5 @@ VALUES
 ('Teylor','Smith', 6, null),
 ('Christopher','Clair', 7, 5),
 ('Rich','Hosek', 8, null),
-('MJ','Shelton', 9, 7);
+('MJ','Shelton',8 , 7);
 
